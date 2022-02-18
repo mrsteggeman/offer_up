@@ -11,6 +11,9 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :messages,
+             foreign_key: :item_details_id
+
   belongs_to :category
 
   # Indirect associations
