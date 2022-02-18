@@ -7,6 +7,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :messages,
+             foreign_key: :sender_id
+
   has_many   :items
 
   # Indirect associations
