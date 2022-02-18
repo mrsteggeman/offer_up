@@ -3,7 +3,8 @@ class ItemListsController < ApplicationController
 
   # GET /item_lists
   def index
-    @item_lists = ItemList.page(params[:page]).per(10)
+    @q = ItemList.ransack(params[:q])
+    @item_lists = @q.result(:distinct => true).page(params[:page]).per(10)
   end
 
   # GET /item_lists/1
