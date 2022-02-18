@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all
+    @items = current_user.items.page(params[:page]).per(10)
   end
 
   # GET /items/1
