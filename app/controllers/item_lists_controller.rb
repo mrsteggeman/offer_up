@@ -1,15 +1,14 @@
 class ItemListsController < ApplicationController
-  before_action :set_item_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_item_list, only: %i[show edit update destroy]
 
   # GET /item_lists
   def index
     @q = ItemList.ransack(params[:q])
-    @item_lists = @q.result(:distinct => true).page(params[:page]).per(10)
+    @item_lists = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   # GET /item_lists/1
-  def show
-  end
+  def show; end
 
   # GET /item_lists/new
   def new
@@ -17,15 +16,14 @@ class ItemListsController < ApplicationController
   end
 
   # GET /item_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /item_lists
   def create
     @item_list = ItemList.new(item_list_params)
 
     if @item_list.save
-      redirect_to @item_list, notice: 'Item list was successfully created.'
+      redirect_to @item_list, notice: "Item list was successfully created."
     else
       render :new
     end
@@ -34,7 +32,7 @@ class ItemListsController < ApplicationController
   # PATCH/PUT /item_lists/1
   def update
     if @item_list.update(item_list_params)
-      redirect_to @item_list, notice: 'Item list was successfully updated.'
+      redirect_to @item_list, notice: "Item list was successfully updated."
     else
       render :edit
     end
@@ -43,17 +41,18 @@ class ItemListsController < ApplicationController
   # DELETE /item_lists/1
   def destroy
     @item_list.destroy
-    redirect_to item_lists_url, notice: 'Item list was successfully destroyed.'
+    redirect_to item_lists_url, notice: "Item list was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item_list
-      @item_list = ItemList.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def item_list_params
-      params.require(:item_list).permit(:item_details_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item_list
+    @item_list = ItemList.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def item_list_params
+    params.require(:item_list).permit(:item_details_id)
+  end
 end

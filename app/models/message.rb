@@ -2,11 +2,11 @@ class Message < ApplicationRecord
   # Direct associations
 
   belongs_to :sender,
-             :class_name => "User"
+             class_name: "User"
 
   belongs_to :item_details,
-             :class_name => "Item",
-             :counter_cache => true
+             class_name: "Item",
+             counter_cache: true
 
   # Indirect associations
 
@@ -17,5 +17,4 @@ class Message < ApplicationRecord
   def to_s
     content
   end
-
 end

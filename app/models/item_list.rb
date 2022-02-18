@@ -10,5 +10,4 @@ class ItemList < ApplicationRecord
   def to_s
     item_details_id
   end
-
 end

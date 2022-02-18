@@ -19,5 +19,4 @@ class ItemResource < ApplicationResource
   belongs_to :category
 
   # Indirect associations
-
 end

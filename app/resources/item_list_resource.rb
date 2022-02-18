@@ -7,5 +7,4 @@ class ItemListResource < ApplicationResource
   # Direct associations
 
   # Indirect associations
-
 end
