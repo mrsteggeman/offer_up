@@ -12,12 +12,20 @@
 
       <dt>Item details</dt>
       <!-- Display item_details_id start -->
-      <dd><%= message.item_details_id %></dd>
+      <dd>
+        <% if @message.item_details.present? %>
+          <%= link_to message.item_details, message.item_details %>
+        <% end %>
+      </dd>
       <!-- Display item_details_id end -->
 
       <dt>Sender</dt>
       <!-- Display sender_id start -->
-      <dd><%= message.sender_id %></dd>
+      <dd>
+        <% if @message.sender.present? %>
+          <%= link_to message.sender, message.sender %>
+        <% end %>
+      </dd>
       <!-- Display sender_id end -->
 
     </dl>
