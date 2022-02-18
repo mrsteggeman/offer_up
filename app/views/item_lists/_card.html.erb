@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Item details</dt>
-      <!-- Display item_details_id start -->
       <dd><%= item_list.item_details_id %></dd>
-      <!-- Display item_details_id end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back item_list, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link item_list start -->
       <div class="col">
         <%= link_to edit_item_list_url(item_list), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link item_list end -->
 
-      <!-- Delete link item_list start -->
       <div class="col">
         <%= link_to item_list, method: :delete, data: { confirm: "Do you really want to delete this item_list?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link item_list end -->
     </div>
   </div>
 

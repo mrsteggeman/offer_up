@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @item.messages.each do |message| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to message, message %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == message.sender %>
           <%= link_to message, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="item_messages_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "items/item_messages_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

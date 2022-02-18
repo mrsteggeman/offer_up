@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Content</dt>
-      <!-- Display content start -->
       <dd><%= message.content %></dd>
-      <!-- Display content end -->
 
       <dt>Item details</dt>
-      <!-- Display item_details_id start -->
       <dd>
         <% if @message.item_details.present? %>
           <%= link_to message.item_details, message.item_details %>
         <% end %>
       </dd>
-      <!-- Display item_details_id end -->
 
       <dt>Sender</dt>
-      <!-- Display sender_id start -->
       <dd>
         <% if @message.sender.present? %>
           <%= link_to message.sender, message.sender %>
         <% end %>
       </dd>
-      <!-- Display sender_id end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back message, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link message start -->
       <div class="col">
         <% if current_user == @message.sender %>
           <%= link_to edit_message_url(message), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link message end -->
 
-      <!-- Delete link message start -->
       <div class="col">
         <% if current_user == @message.sender %>
           <%= link_to message, method: :delete, data: { confirm: "Do you really want to delete this message?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link message end -->
     </div>
   </div>
 
