@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  has_many   :messages,
+             :foreign_key => "item_details_id",
+             :dependent => :destroy
+
   belongs_to :category,
              :counter_cache => true
 
